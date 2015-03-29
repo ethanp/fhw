@@ -1,0 +1,9 @@
+%h1 Dear Maintainer,
+%p
+  = @request.user.name
+  has made a new request for
+  %b= @request.name
+-if @request.description.size > 0
+  %p They said:
+  %blockquote= @request.description
+%p That is all, thanks!
