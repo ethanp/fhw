@@ -17,6 +17,10 @@ Rails.application.routes.draw do
   resources :recipes
   patch '/recipes/:id/clear_date' => 'recipes#clear_date', as: :clear_date
 
+  # dinner
+  resources :dinners
+  post '/dinners/:id/add_save_plate' => 'dinners#add_save_plate', as: :save_plate
+
   # labor stuff
   patch 'violations/:id/settle' => 'violations#settle', as: :settle_violation
   patch 'violations/:id/unsettle' => 'violations#unsettle', as: :unsettle_violation

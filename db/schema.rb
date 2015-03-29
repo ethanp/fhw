@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150209165454) do
+ActiveRecord::Schema.define(version: 20150329120113) do
 
   create_table "checkoffs", force: :cascade do |t|
     t.integer  "task_id",    null: false
@@ -33,6 +33,18 @@ ActiveRecord::Schema.define(version: 20150209165454) do
   end
 
   add_index "dids", ["labor_id"], name: "index_dids_on_labor_id"
+
+  create_table "dinners", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.date     "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "dinners_users", id: false, force: :cascade do |t|
+    t.integer "dinner_id", null: false
+    t.integer "user_id",   null: false
+  end
 
   create_table "labors", force: :cascade do |t|
     t.string   "name",        null: false

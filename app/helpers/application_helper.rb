@@ -1,6 +1,6 @@
 module ApplicationHelper
   def possible_date item
-    item.nil? ? 'Not set' : item.strftime("%a, %B %d")
+    item.nil? ? 'Not set' : item.strftime("%A, %B %d")
   end
   def long_date date
     date.nil? ? '' : date.strftime("%A %B %d, %I:%M %P")

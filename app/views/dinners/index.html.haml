@@ -1,0 +1,21 @@
+%h1 This Week's Dinners
+
+%table.table.table-striped.table-bordered.table-hover
+  %thead
+    %tr
+      %th Name
+      %th Date
+      %th
+
+  %tbody
+    - @dinners.each do |dinner|
+      %tr
+        %td= link_to dinner.name, dinner
+        %td= possible_date dinner.date
+        %td= link_to 'Destroy', dinner,
+          method: :delete, data: { confirm: 'Are you sure?' },
+          class: 'btn btn-xs btn-danger'
+
+%br
+
+= link_to 'New Dinner', new_dinner_path

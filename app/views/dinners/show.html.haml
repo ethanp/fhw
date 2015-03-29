@@ -1,0 +1,22 @@
+%p#notice= notice
+
+%h2
+  %b= @dinner.name
+%h3= possible_date @dinner.date
+
+%br
+
+- if @dinner.users.blank?
+  %h4 No Save Plates
+- else
+  %h4 Save Plates
+  %ol
+    - @dinner.users.each do |u|
+      %li= u.name
+%br
+= link_to 'Sign up for save plate', save_plate_path(@dinner), method: :post, class: 'btn btn-lg btn-info'
+\|
+= link_to 'Back to week', dinners_path, class: 'btn btn-lg btn-default'
+
+%hr
+= link_to 'Edit', edit_dinner_path(@dinner)

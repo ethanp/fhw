@@ -1,6 +1,6 @@
 class MaintenanceRequestsController < ApplicationController
   before_action :set_maintenance_request, only: [:show, :edit, :update, :destroy, :finish, :unfinish]
-
+  before_action :authenticate_user!
   respond_to :html
 
   def index
