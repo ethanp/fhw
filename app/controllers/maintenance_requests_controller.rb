@@ -45,6 +45,7 @@ class MaintenanceRequestsController < ApplicationController
 
   def finish
     @maintenance_request.update_attribute :done, true
+    MaintenanceMailer.request_completed(@maintenance_request).deliver_now
     redirect_to maintenance_requests_path
   end
 

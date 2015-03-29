@@ -1,0 +1,7 @@
+%h1 Dear #{@request.user.name},
+%p
+  Your request for
+  %b= link_to @request.name, @request
+  has been marked as "complete" by the maintenance officer.
+%p That is all, thanks!
+
