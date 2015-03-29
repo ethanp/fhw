@@ -1,0 +1,49 @@
+.subheading
+  color: darkgray
+.heading
+  font-family: Georgia, serif
+  font-weight: bold
+
+.my-table
+  border-collapse: separate
+  border-spacing: 0 10px
+
+  %left
+    border-top-left-radius: 20px
+    border-bottom-left-radius: 20px
+
+  %right
+    border-top-right-radius: 20px
+    border-bottom-right-radius: 20px
+
+  tr > td, th
+    &:first-child
+      @extend %left
+    &:last-child
+      @extend %right
+
+  thead th
+    background-color: lightblue
+  tbody td
+    background-color: whitesmoke
+  %a
+    color: brown
+    text-decoration: none
+
+  $dark_brown: rgb(125, 22, 22)
+
+  // this order is non-negotiable
+  a:link // unvisited
+    @extend %a
+  a:visited
+    @extend %a
+    color: $dark_brown
+  a:hover
+    color: blue
+    background-color: whitesmoke
+    text-decoration: none // remove underlines
+  a:active
+    @extend %a
+    color: green
+  a.btn
+    color: white

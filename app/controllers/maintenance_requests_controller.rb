@@ -5,6 +5,7 @@ class MaintenanceRequestsController < ApplicationController
 
   def index
     @maintenance_requests = MaintenanceRequest.not_dones
+    UserMailer.an_email(nil).deliver_now
     respond_with(@maintenance_requests)
   end
 

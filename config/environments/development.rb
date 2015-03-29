@@ -33,9 +33,10 @@ Rails.application.configure do
     domain:   Rails.application.secrets.domain_name,
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: Rails.application.secrets.email_provider_username,
-    password: Rails.application.secrets.email_provider_password
+    user_name: ENV["FRENCH_HOUSE_GMAIL"],
+    password: ENV["FRENCH_HOUSE_PASSWORD"]
   }
+
   # ActionMailer Config
   config.action_mailer.default_url_options = {host: 'localhost:3000'}
   config.action_mailer.delivery_method = :smtp

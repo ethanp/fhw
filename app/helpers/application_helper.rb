@@ -8,4 +8,7 @@ module ApplicationHelper
   def current_user_is_labor_czar
     user_signed_in? && current_user.isLaborCzar
   end
+  def nilOr(a, b)
+    a.nil? ? b : a
+  end
 end
