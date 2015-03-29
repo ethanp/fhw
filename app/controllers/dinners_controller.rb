@@ -4,7 +4,11 @@ class DinnersController < ApplicationController
   respond_to :html
 
   def add_save_plate
-    @dinner.users << current_user unless @dinner.users.include? current_user
+    if @dinner.users.include? current_user
+      @dinner.users.delete current_user
+    else
+      @dinner.users << current_user
+    end
     respond_with @dinner
   end
 

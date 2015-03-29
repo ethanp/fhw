@@ -5,6 +5,7 @@
     %tr
       %th Name
       %th Date
+      %th Save Platers
       %th
 
   %tbody
@@ -12,6 +13,7 @@
       %tr
         %td= link_to dinner.name, dinner
         %td= possible_date dinner.date
+        %td= dinner.users.count
         %td= link_to 'Destroy', dinner,
           method: :delete, data: { confirm: 'Are you sure?' },
           class: 'btn btn-xs btn-danger'

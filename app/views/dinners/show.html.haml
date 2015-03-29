@@ -14,7 +14,11 @@
     - @dinner.users.each do |u|
       %li= u.name
 %br
-= link_to 'Sign up for save plate', save_plate_path(@dinner), method: :post, class: 'btn btn-lg btn-info'
+
+- if @dinner.users.include? current_user
+  = link_to 'Un-sign up for save plate', save_plate_path(@dinner), method: :post, class: 'btn btn-lg btn-info'
+- else
+  = link_to 'Sign up for save plate', save_plate_path(@dinner), method: :post, class: 'btn btn-lg btn-info'
 \|
 = link_to 'Back to week', dinners_path, class: 'btn btn-lg btn-default'
 
