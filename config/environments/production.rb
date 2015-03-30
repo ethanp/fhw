@@ -24,6 +24,9 @@ Rails.application.configure do
   # Apache or NGINX already handles this.
   config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
+  # from stackoverflow.com/questions/16271696 ("getting css working on heroku")
+  config.serve_static_assets = true
+
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
