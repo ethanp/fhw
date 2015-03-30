@@ -45,8 +45,12 @@ end
 
 group :production do  # for use with heroku
   gem 'pg'
-  gem 'rails_12factor'
   gem 'unicorn'
+
+  # doesn't seem to work?
+  # I had to run `rake assets:precompile` locally
+  # and push the resulting files
+  gem 'rails_12factor'
 end
 
 group :test do

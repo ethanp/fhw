@@ -13,6 +13,7 @@
   %b Done?
   = @maintenance_request.done ? 'Yes' : 'No'
 
-= link_to 'Edit', edit_maintenance_request_path(@maintenance_request)
-\|
+- if current_user == @maintenance_request.user || current_user.maintenance_officer
+  = link_to 'Edit', edit_maintenance_request_path(@maintenance_request)
+  \|
 = link_to 'Back', maintenance_requests_path
