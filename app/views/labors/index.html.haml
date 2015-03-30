@@ -19,7 +19,7 @@
                 %th
 
           %tbody
-            - @labors.each do |labor|
+            - @labors.sort_by { |l| Date::DAYNAMES.find_index(l.dueday) }.each do |labor|
               %tr
                 %td
                   %b= link_to labor.name, labor
