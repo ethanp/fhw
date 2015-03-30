@@ -4,8 +4,13 @@ class DidsController < ApplicationController
 
   respond_to :html
 
-  def index
+  def all
     @dids = Did.all
+    render 'index'
+  end
+
+  def index
+    @dids = Labor.find(params[:labor_id]).dids
     respond_with(@dids)
   end
 

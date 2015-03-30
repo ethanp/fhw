@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   patch 'violations/:id/settle' => 'violations#settle', as: :settle_violation
   patch 'violations/:id/unsettle' => 'violations#unsettle', as: :unsettle_violation
   get 'violations' => 'violations#index', as: :violations
+  get 'dids' => 'dids#all'
   shallow do
     resources :labors do
       resources :tasks
