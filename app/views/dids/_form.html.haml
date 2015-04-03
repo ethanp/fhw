@@ -7,8 +7,6 @@
       = f.label c.task.description
       = b.check_box :complete
       %br
-
-.form-actions
+.modal-footer
+  %button.btn.btn-danger{"data-dismiss" => "modal", type: "button"} Cancel
   = f.button :submit, 'Submit', class: 'btn-success'
-
-

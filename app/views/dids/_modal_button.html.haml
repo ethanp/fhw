@@ -13,5 +13,3 @@
         - @did = new_did_for_labor labor
         = simple_form_for [@did.labor, @did] do |f|
           = render 'dids/form', f: f
-      .modal-footer
-        %button.btn.btn-default.btn-danger{"data-dismiss" => "modal", type: "button"} Cancel
