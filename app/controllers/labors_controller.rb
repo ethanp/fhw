@@ -5,7 +5,7 @@ class LaborsController < ApplicationController
   respond_to :html
 
   def index
-    @labors = Labor.all
+    @labors = Labor.all.sort_by { |l| Date::DAYNAMES.find_index(l.dueday) }
     @violations = Violation.all
     @unsettled, @settled = @violations.partition { |v| v.date_settled.nil? }
     respond_with(@labors)
