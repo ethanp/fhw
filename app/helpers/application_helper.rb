@@ -11,4 +11,10 @@ module ApplicationHelper
   def nilOr(a, b)
     a.nil? ? b : a
   end
+  def new_did_for_labor labor
+    did = Did.new
+    did.labor = labor
+    did.checkoffs = did.labor.tasks.map { |task| Checkoff.new(task_id: task.id) }
+    did
+  end
 end
