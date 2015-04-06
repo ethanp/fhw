@@ -1,8 +1,9 @@
 / Button trigger modal
-%button.btn.btn-primary.btn-xs{"data-target" => "#myModal", "data-toggle" => "modal", type: "button"}
+- @did = new_did_for_labor labor
+%button.btn.btn-primary.btn-xs{"data-target" => "#myModal-#{@did.labor.id}", "data-toggle" => "modal", type: "button"}
   Oops I did it again
 / Modal
-#myModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1"}
+.modal.fade{id: "myModal-#{@did.labor.id}", "aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1"}
   .modal-dialog
     .modal-content
       .modal-header
@@ -10,6 +11,5 @@
           %span{"aria-hidden" => "true"} &times;
         %h4#myModalLabel.modal-title Select the time when you did your labor
       .modal-body
-        - @did = new_did_for_labor labor
         = simple_form_for [@did.labor, @did] do |f|
           = render 'dids/form', f: f
